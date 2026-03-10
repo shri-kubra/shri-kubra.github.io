@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KUBRA Writing Style Guide</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top-bar">
+    <div class="top-bar__logo">
+      <svg viewBox="0 0 40 36" width="32" height="28" aria-hidden="true">
+        <polygon points="20,0 0,12 0,24 20,12" fill="#82BC00"/>
+        <polygon points="20,0 40,12 40,24 20,12" fill="#0093C9"/>
+        <polygon points="20,12 0,24 20,36 40,24" fill="#536372"/>
+      </svg>
+      <span>KUBRA <em>Writing Style Guide</em></span>
+    </div>
+    <div class="top-bar__search">
+      <input type="text" id="searchInput" placeholder="Search the style guide..." autocomplete="off" />
+    </div>
+  </header>
+  <nav class="sidebar" id="sidebar">
+    <ul>
+      <li><a href="#introduction" class="nav-link active" data-section="introduction">Introduction</a></li>
+      <li>
+        <span class="nav-group-label">Writing</span>
+        <ul>
+          <li><a href="#writing-principles" class="nav-link" data-section="writing-principles">Goals &amp; Principles</a></li>
+          <li><a href="#tone-voice" class="nav-link" data-section="tone-voice">Tone &amp; Voice</a></li>
+          <li><a href="#language" class="nav-link" data-section="language">Language</a></li>
+          <li><a href="#grammar" class="nav-link" data-section="grammar">Grammar &amp; Mechanics</a></li>
+          <li><a href="#sentence-structure" class="nav-link" data-section="sentence-structure">Sentence Structure</a></li>
+          <li><a href="#abbreviations" class="nav-link" data-section="abbreviations">Abbreviations &amp; Acronyms</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <main class="content" id="content">
+    <section id="introduction" class="section">
+      <h1>Introduction</h1>
+      <h2>About This Guide</h2>
+      <p>This writing style guide is a tool to help everyone at KUBRA communicate with clarity, consistency, and confidence. Whether you're writing technical documentation, UI copy, marketing content, or learning materials, these guidelines ensure our words reflect who we are and respect our readers' time.</p>
+      <p>Good writing builds trust. When our content is consistent, our customers and colleagues can focus on what matters — understanding the message and taking action.</p>
+      <p>This guide covers goals and principles, tone and voice, language, grammar and mechanics, sentence structure, and abbreviations and acronyms — with role-specific guidance for Technical Writers, UX Writers, Marketing Writers, and Instructional Designers.</p>
+    </section>
+    <section id="writing-principles" class="section">
+      <h1>Writing Goals &amp; Principles</h1>
+      <h2>Core Principles</h2>
+      <div class="card-row card-row--quad">
+        <div class="card card--accent-green"><h3>Empower</h3><p>Give readers the confidence and tools to act. Make the next step clear and achievable.</p></div>
+        <div class="card card--accent-blue"><h3>Respect</h3><p>Use people-first language. Value the reader's time and avoid unnecessary complexity.</p></div>
+        <div class="card card--accent-green"><h3>Educate</h3><p>Focus on what users need to know to move forward. Prioritize usefulness over completeness.</p></div>
+        <div class="card card--accent-blue"><h3>Guide</h3><p>Be friendly, helpful, and solution-oriented. Reduce uncertainty and friction wherever possible.</p></div>
+      </div>
+      <h2>By Role</h2>
+      <div class="role-tabs">
+        <button class="role-tab active" data-role="tw-principles">Technical Writers</button>
+        <button class="role-tab" data-role="ux-principles">UX Writers</button>
+        <button class="role-tab" data-role="mktg-principles">Marketing Writers</button>
+        <button class="role-tab" data-role="id-principles">Instructional Designers</button>
+      </div>
+      <div class="role-content" id="tw-principles"><ul class="styled-list"><li><strong>Thoroughness</strong> — Cover prerequisites, document steps, explain validation, include troubleshooting.</li><li><strong>Clarity of scope</strong> — State what the content covers and what it does not at the beginning of each document.</li><li><strong>Reusability</strong> — Structure procedures, warnings, notes, and examples so they can be reused across documents.</li><li><strong>Consistency</strong> — Use a standard structure for similar content so readers know what to expect.</li></ul></div>
+      <div class="role-content hidden" id="ux-principles"><ul class="styled-list"><li><strong>Microcopy focus</strong> — Every label, tooltip, and message should help users understand what to do next.</li><li><strong>Context awareness</strong> — Reflect the current UI state and user progress in system messages.</li><li><strong>Brevity</strong> — Keep copy short and focused, especially in constrained spaces.</li><li><strong>Predictive assistance</strong> — Anticipate common questions and address them before they interrupt the flow.</li></ul></div>
+      <div class="role-content hidden" id="mktg-principles"><ul class="styled-list"><li><strong>Benefit-first messaging</strong> — Lead with outcomes and value, not features.</li><li><strong>Audience awareness</strong> — Tailor language to the reader's role, goals, and stage in the journey.</li><li><strong>Credibility</strong> — Support claims with examples, data, or customer outcomes.</li><li><strong>Clear calls to action</strong> — Make the next step obvious and easy to take.</li></ul></div>
+      <div class="role-content hidden" id="id-principles"><ul class="styled-list"><li><strong>Learning objectives</strong> — Clearly state what learners will be able to do by the end of a section or module.</li><li><strong>Scaffolded learning</strong> — Introduce concepts gradually and build through guided practice.</li><li><strong>Engagement</strong> — Reinforce learning with activities, scenarios, or reflection.</li><li><strong>Accessibility</strong> — Design content that supports different learning styles and abilities.</li></ul></div>
+      <h2>Examples</h2>
+      <div class="example-block"><div class="example example--dont"><span class="badge badge--dont">× Before</span><p>"This tool supports various functions."</p></div><div class="example example--do"><span class="badge badge--do">✓ After</span><p>"You can use this tool to create reports, automate workflows, and manage customer data."</p></div></div>
+      <div class="example-block"><div class="example example--dont"><span class="badge badge--dont">× Weak CTA</span><p>"Learn more."</p></div><div class="example example--do"><span class="badge badge--do">✓ Strong CTA</span><p>"Discover how this feature can improve your workflow."</p></div></div>
+    </section>
+    <section id="tone-voice" class="section">
+      <h1>Tone &amp; Voice</h1>
+      <h2>Voice</h2>
+      <p>Voice defines KUBRA's personality. It remains consistent across channels while allowing flexibility based on audience and context.</p>
+      <h3>Core Attributes</h3>
+      <div class="card-row card-row--triple">
+        <div class="card"><h4>Confident but Humble</h4><p>We know our space and can help, without sounding arrogant.</p></div>
+        <div class="card"><h4>Informal but Precise</h4><p>We sound human and approachable, but never sloppy or unclear.</p></div>
+        <div class="card"><h4>Helpful, Never Overbearing</h4><p>We guide readers toward outcomes without pushing or overwhelming them.</p></div>
+      </div>
+      <h2>Voice by Role</h2>
+      <div class="role-tabs">
+        <button class="role-tab active" data-role="tw-voice">Technical Writers</button>
+        <button class="role-tab" data-role="ux-voice">UX Writers</button>
+        <button class="role-tab" data-role="mktg-voice">Marketing Writers</button>
+        <button class="role-tab" data-role="id-voice">Instructional Designers</button>
+      </div>
+      <div class="role-content" id="tw-voice"><p>Use an <strong>expert guide</strong> voice. Writing should sound knowledgeable and practical, using active voice and clear ownership of actions.</p></div>
+      <div class="role-content hidden" id="ux-voice"><p>Act as a <strong>friendly companion</strong> in the interface. Writing should feel conversational, supportive, and focused on helping users move forward.</p></div>
+      <div class="role-content hidden" id="mktg-voice"><p>Act as <strong>brand ambassadors</strong>. Writing should reflect KUBRA's energy and confidence while staying grounded in real customer needs and outcomes.</p></div>
+      <div class="role-content hidden" id="id-voice"><p>Act as <strong>encouraging coaches</strong>. Writing should build confidence, normalize challenge, and help learners feel capable as they progress.</p></div>
+      <h2>Tone</h2>
+      <p>Tone is how voice adapts to the situation. While KUBRA's voice stays consistent, tone should shift based on context, audience, and emotional stakes.</p>
+      <h3>Core Stance</h3>
+      <ul class="styled-list">
+        <li>Tone is generally <strong>informal, but always clear</strong>. Clarity takes priority over entertainment.</li>
+        <li>Tone should <strong>adapt to user context</strong> — troubleshooting, exploration, or decision-making.</li>
+      </ul>
+      <h3>Tone by Role</h3>
+      <div class="role-tabs">
+        <button class="role-tab active" data-role="tw-tone">Technical Writers</button>
+        <button class="role-tab" data-role="ux-tone">UX Writers</button>
+        <button class="role-tab" data-role="mktg-tone">Marketing Writers</button>
+        <button class="role-tab" data-role="id-tone">Instructional Designers</button>
+      </div>
+      <div class="role-content" id="tw-tone"><p>Use a <strong>neutral, professional</strong> tone. Procedures should be objective and predictable, while troubleshooting content should show empathy and focus on recovery.</p></div>
+      <div class="role-content hidden" id="ux-tone"><p>Use a <strong>conversational</strong> tone in normal flows, a <strong>calm and reassuring</strong> tone in error states, and a <strong>brief, positive</strong> tone in success messages.</p></div>
+      <div class="role-content hidden" id="mktg-tone"><p>Vary tone by content type. Blogs, social posts, and most emails are <strong>informal and approachable</strong>. White papers are more <strong>formal and focused on thought leadership</strong>. Case studies are <strong>factual and client-approved</strong>. Press releases are <strong>concise, factual, and energetic</strong>.</p></div>
+      <div class="role-content hidden" id="id-tone"><p>Use a <strong>supportive and motivational</strong> tone. Learning content should feel encouraging, while assessments should be clear and direct.</p><p><em>Example:</em> "Great start! Let's move on to more advanced techniques."</p></div>
+      <h2>Inclusive Language</h2>
+      <ul class="styled-list">
+        <li>Avoid words or phrases that might alienate diverse groups.</li>
+        <li>Use "allowlist" instead of "whitelist."</li>
+        <li>Use "they" for gender neutrality.</li>
+        <li>Avoid age markers (e.g., "elderly").</li>
+        <li>Example: Instead of "Hey guys," use "Hello everyone" or address with personalization.</li>
+      </ul>
+    </section>
+    <section id="language" class="section">
+      <h1>Language</h1>
+      <p>Language choices determine how easy content is to understand, scan, and trust. At KUBRA, language should feel clear, consistent, and inclusive across all content types.</p>
+      <h2>Core Language Approach</h2>
+      <ul class="styled-list">
+        <li><strong>Use plain language</strong> whenever possible. Choose familiar words and direct verbs over complex or abstract phrasing. Plain language is not simplistic — it is efficient and respectful of the reader's time.</li>
+        <li><strong>Be consistent.</strong> Use one term per concept and apply it everywhere. Switching between similar terms creates unnecessary confusion.</li>
+        <li><strong>Write inclusively.</strong> Avoid language that assumes identity, role, ability, or experience. Use gender-neutral terms and avoid idioms or cultural references that may not translate well.</li>
+        <li><strong>Write for a global audience.</strong> Avoid slang and metaphors. Use clear date and time formats and specify time zones when time matters.</li>
+        <li><strong>Use American English</strong> by default. Canadian spelling is used only when content is explicitly targeted to a Canadian audience.</li>
+      </ul>
+      <h2>Language by Role</h2>
+      <div class="role-tabs">
+        <button class="role-tab active" data-role="tw-lang">Technical Writers</button>
+        <button class="role-tab" data-role="ux-lang">UX Writers</button>
+        <button class="role-tab" data-role="mktg-lang">Marketing Writers</button>
+        <button class="role-tab" data-role="id-lang">Instructional Designers</button>
+      </div>
+      <div class="role-content" id="tw-lang"><p>Prioritize <strong>precision and consistency</strong>. Match UI labels and system messages exactly, define technical terms when first introduced, and use acronyms carefully.</p></div>
+      <div class="role-content hidden" id="ux-lang"><p>Mirror how users <strong>think and speak</strong>. Use familiar language, clear action verbs, and concise phrasing that supports quick decision-making in the interface.</p></div>
+      <div class="role-content hidden" id="mktg-lang"><p>Translate product capabilities into <strong>customer value</strong>. Language should be conversational, accurate, and empathetic — avoiding hype or unsupported claims.</p></div>
+      <div class="role-content hidden" id="id-lang"><p>Use <strong>learner-centered language</strong>. Address learners directly, use consistent instructional verbs, and reinforce terminology through repetition and practice.</p></div>
+    </section>
+    <section id="grammar" class="section">
+      <h1>Grammar &amp; Mechanics</h1>
+      <p>Grammar and mechanics create consistency across KUBRA content and reduce reader effort. These standards exist to support clarity, not formality.</p>
+      <h2>Core Conventions</h2>
+      <ul class="styled-list">
+        <li><strong>Use the Oxford comma.</strong></li>
+        <li>Use parentheses for asides.</li>
+        <li>Follow consistent rules for numbers, dates, and times.</li>
+        <li>Avoid decorative punctuation.</li>
+        <li>Format UI elements consistently.</li>
+      </ul>
+      <h2>Mechanics by Role</h2>
+      <div class="role-tabs">
+        <button class="role-tab active" data-role="tw-grammar">Technical Writers</button>
+        <button class="role-tab" data-role="ux-grammar">UX Writers</button>
+        <button class="role-tab" data-role="mktg-grammar">Marketing Writers</button>
+        <button class="role-tab" data-role="id-grammar">Instructional Designers</button>
+      </div>
+      <div class="role-content" id="tw-grammar"><p>Consistently format UI labels, code, and commands. Always include a clear recovery path in troubleshooting content.</p></div>
+      <div class="role-content hidden" id="ux-grammar"><p>Use sentence case for UI text, keep punctuation minimal, and maintain consistent message patterns across similar interactions.</p></div>
+      <div class="role-content hidden" id="mktg-grammar"><p>Optimize mechanics for readability and scanning, using numerals and formatting where they improve clarity.</p></div>
+      <div class="role-content hidden" id="id-grammar"><p>Use consistent labeling for modules and activities, parallel structure in objectives, and clear, supportive feedback.</p></div>
+    </section>
+    <section id="sentence-structure" class="section">
+      <h1>Sentence Structure</h1>
+      <p>Sentence structure affects how quickly content can be read and understood. At KUBRA, structure should support scanning, clarity, and action.</p>
+      <h2>Core Approach</h2>
+      <ul class="styled-list">
+        <li>Prefer <strong>short, direct sentences</strong>.</li>
+        <li>Express <strong>one idea per sentence</strong> and one topic per paragraph.</li>
+        <li>Place the <strong>most important information first</strong>. Supporting details can follow.</li>
+        <li>Use <strong>lists</strong> to reduce complexity and make content easier to scan.</li>
+      </ul>
+      <h2>Structure by Role</h2>
+      <div class="role-tabs">
+        <button class="role-tab active" data-role="tw-sentence">Technical Writers</button>
+        <button class="role-tab" data-role="ux-sentence">UX Writers</button>
+        <button class="role-tab" data-role="mktg-sentence">Marketing Writers</button>
+        <button class="role-tab" data-role="id-sentence">Instructional Designers</button>
+      </div>
+      <div class="role-content" id="tw-sentence"><p>Keep procedures atomic, with <strong>one action per step</strong> and verb-first instructions. Headings should describe outcomes, not topics.</p></div>
+      <div class="role-content hidden" id="ux-sentence"><p>Keep labels and messages short. <strong>Sentence fragments are acceptable</strong> when context makes meaning clear.</p></div>
+      <div class="role-content hidden" id="mktg-sentence"><p>Favor <strong>short sentences, clear subheadings, and white space</strong>. Dense paragraphs should be avoided.</p></div>
+      <div class="role-content hidden" id="id-sentence"><p>Introduce a concept briefly, then move quickly into application. <strong>Instructions and explanations should be clearly separated.</strong></p></div>
+    </section>
+    <section id="abbreviations" class="section">
+      <h1>Abbreviations &amp; Acronyms</h1>
+      <p>Abbreviations and acronyms can improve efficiency when used carefully, but they can also create confusion when overused or introduced without context. At KUBRA, acronyms should support clarity, not replace it.</p>
+      <h2>General Guidance</h2>
+      <ul class="styled-list">
+        <li><strong>Spell out on first use</strong>, followed by the shortened form in parentheses. After that, use the acronym consistently.</li>
+        <li><strong>Do not introduce acronyms that appear only once or twice</strong> on a page. If a term is not reused, spelling it out is usually clearer.</li>
+        <li><strong>Avoid internal or team-specific shorthand</strong> in customer-facing content. If an acronym is meaningful only inside KUBRA, it likely does not belong in external documentation or marketing materials.</li>
+        <li>When <strong>multiple acronyms appear in the same section</strong>, take extra care to avoid cognitive overload. Consider rephrasing or breaking up the content.</li>
+      </ul>
+      <h2>By Role</h2>
+      <div class="role-tabs">
+        <button class="role-tab active" data-role="tw-abbr">Technical Writers</button>
+        <button class="role-tab" data-role="ux-abbr">UX Writers</button>
+        <button class="role-tab" data-role="mktg-abbr">Marketing Writers</button>
+        <button class="role-tab" data-role="id-abbr">Instructional Designers</button>
+      </div>
+      <div class="role-content" id="tw-abbr"><p>Acronyms are often unavoidable, but they should always be introduced intentionally. Define them clearly, especially when they represent systems, roles, or configurations that affect task outcomes. Consider whether the acronym is industry-standard or product-specific, and define accordingly.</p></div>
+      <div class="role-content hidden" id="ux-abbr"><p>Avoid acronyms in UI text whenever possible. Short interface copy should prioritize immediate understanding. Acronyms may be appropriate in tables, advanced settings, or constrained spaces only when the audience is familiar with them.</p></div>
+      <div class="role-content hidden" id="mktg-abbr"><p>Use acronyms sparingly and only when they are well known to the intended audience. When in doubt, spell it out. Acronyms should never make messaging feel exclusive or overly technical.</p></div>
+      <div class="role-content hidden" id="id-abbr"><p>Introduce acronyms early in a course and reinforce them consistently. Avoid introducing multiple new acronyms at once. If learners must remember an acronym, ensure it is reused in activities and assessments.</p></div>
+    </section>
+    <div id="noResults" class="no-results hidden">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#536372" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <p>No sections match your search. Try a different keyword.</p>
+    </div>
+  </main>
+  <button class="back-to-top" id="backToTop" title="Back to top" aria-label="Back to top">↑</button>
+  <script src="script.js"></script>
+</body>
+</html>
