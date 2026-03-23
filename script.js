@@ -1,6 +1,6 @@
 /* ===================================================
-   KUBRA Writing Style Guide — script.js (v3 — fixed)
-   Search + Scroll-spy + Role Tabs + Feedback System
+   KUBRA Writing Style Guide — script.js (v4)
+   Improved Search + PDF Export + Scroll-spy + Feedback
    =================================================== */
 
 (function () {
@@ -9,10 +9,12 @@
   /* ---------- DOM refs ---------- */
   var searchInput = document.getElementById('searchInput');
   var searchMeta  = document.getElementById('searchMeta');
+  var searchClear = document.getElementById('searchClear');
   var sections    = document.querySelectorAll('.section');
   var navLinks    = document.querySelectorAll('.nav-link');
   var backToTop   = document.getElementById('backToTop');
   var noResults   = document.getElementById('noResults');
+  var exportBtn   = document.getElementById('exportPdf');
 
   /* ---------- Utility ---------- */
   function debounce(fn, delay) {
@@ -35,11 +37,10 @@
   }
 
   /* ========================================
-     1. IMPROVED SEARCH (highlight + counts)
+     1. IMPROVED SEARCH
      ======================================== */
-
-  /* Store original innerHTML per section (excluding feedback widgets) */
-  /* We'll highlight only within non-feedback content to avoid breaking widgets */
+  var allMarks = [];
+  var currentIdx = -1;
 
   function removeHighlights() {
     var marks = document.querySelectorAll('mark.search-highlight');
@@ -48,12 +49,15 @@
       parent.replaceChild(document.createTextNode(mark.textContent), mark);
       parent.normalize();
     });
+    allMarks = [];
+    currentIdx = -1;
   }
 
-  function highlightInElement(element, query) {
-    if (!query) return 0;
+  function highlightInElement(element, words) {
+    if (!words.length) return 0;
     var count = 0;
-    var regex = new RegExp('(' + escapeRegex(query) + ')', 'gi');
+    var pattern = words.map(escapeRegex).join('|');
+    var regex = new RegExp('(' + pattern + ')', 'gi');
     var walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, null, false);
     var textNodes = [];
     while (walker.nextNode()) textNodes.push(walker.currentNode);
@@ -63,47 +67,104 @@
       if (!parent) return;
       var tag = parent.tagName;
       if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'TEXTAREA') return;
-      /* Skip feedback widgets to avoid breaking them */
       if (parent.closest && parent.closest('.feedback-widget')) return;
+      if (parent.closest && parent.closest('.print-header')) return;
       if (parent.classList && parent.classList.contains('search-highlight')) return;
 
       var text = node.textContent;
       if (regex.test(text)) {
-        var matches = text.match(new RegExp('(' + escapeRegex(query) + ')', 'gi'));
+        regex.lastIndex = 0;
+        var matches = text.match(regex);
         count += matches ? matches.length : 0;
         var span = document.createElement('span');
-        span.innerHTML = text.replace(new RegExp('(' + escapeRegex(query) + ')', 'gi'), '<mark class="search-highlight">$1</mark>');
+        span.innerHTML = text.replace(regex, '<mark class="search-highlight">$1</mark>');
         node.parentNode.replaceChild(span, node);
       }
     });
     return count;
   }
 
+  function collectMarks() {
+    allMarks = Array.prototype.slice.call(document.querySelectorAll('mark.search-highlight'));
+    currentIdx = allMarks.length > 0 ? 0 : -1;
+    if (currentIdx >= 0) {
+      allMarks[0].classList.add('current');
+    }
+  }
+
+  function goToMatch(idx) {
+    if (!allMarks.length) return;
+    if (currentIdx >= 0 && currentIdx < allMarks.length) {
+      allMarks[currentIdx].classList.remove('current');
+    }
+    currentIdx = ((idx % allMarks.length) + allMarks.length) % allMarks.length;
+    allMarks[currentIdx].classList.add('current');
+    allMarks[currentIdx].scrollIntoView({ behavior: 'smooth', block: 'center' });
+    updateMetaText();
+  }
+
+  function updateMetaText() {
+    if (!searchMeta) return;
+    var query = searchInput ? searchInput.value.trim() : '';
+    if (!query) {
+      searchMeta.innerHTML = '';
+      return;
+    }
+    if (allMarks.length === 0) {
+      searchMeta.innerHTML = 'No matches found';
+      return;
+    }
+    searchMeta.innerHTML =
+      '<span>' + (currentIdx + 1) + ' of ' + allMarks.length + ' match' + (allMarks.length !== 1 ? 'es' : '') + '</span>' +
+      '<span class="search-nav-btns">' +
+        '<button class="search-nav-btn" id="searchPrev" title="Previous (Shift+Enter)">&uarr;</button>' +
+        '<button class="search-nav-btn" id="searchNext" title="Next (Enter)">&darr;</button>' +
+      '</span>' +
+      '<span class="search-kbd">Ctrl+K</span>';
+
+    document.getElementById('searchPrev').addEventListener('click', function () {
+      goToMatch(currentIdx - 1);
+    });
+    document.getElementById('searchNext').addEventListener('click', function () {
+      goToMatch(currentIdx + 1);
+    });
+  }
+
+  function tokenize(query) {
+    return query.toLowerCase().split(/\s+/).filter(function (w) { return w.length > 0; });
+  }
+
   function performSearch() {
-    var query = searchInput.value.trim().toLowerCase();
-    var totalMatches = 0;
+    if (!searchInput) return;
+    var raw = searchInput.value.trim();
+    var words = tokenize(raw);
+    var hasQuery = words.length > 0;
     var visibleSections = 0;
 
-    /* Remove old highlights */
     removeHighlights();
 
-    /* Remove old match count badges from nav */
     navLinks.forEach(function (link) {
       var badge = link.querySelector('.nav-match-count');
       if (badge) badge.remove();
     });
 
+    if (searchClear) {
+      searchClear.classList.toggle('visible', raw.length > 0);
+    }
+
     sections.forEach(function (sec) {
       var text = sec.textContent.toLowerCase();
-      if (!query || text.indexOf(query) !== -1) {
+      var allMatch = !hasQuery || words.every(function (w) {
+        return text.indexOf(w) !== -1;
+      });
+
+      if (allMatch) {
         sec.style.display = '';
         visibleSections++;
 
-        if (query) {
-          var matchCount = highlightInElement(sec, query);
-          totalMatches += matchCount;
+        if (hasQuery) {
+          var matchCount = highlightInElement(sec, words);
 
-          /* Add match count badge to sidebar nav */
           navLinks.forEach(function (link) {
             if (link.dataset.section === sec.id && matchCount > 0) {
               var badge = document.createElement('span');
@@ -118,23 +179,14 @@
       }
     });
 
-    /* Show/hide no results */
-    if (visibleSections === 0 && query) {
-      noResults.classList.remove('hidden');
-    } else {
-      noResults.classList.add('hidden');
-    }
-
-    /* Update search meta */
-    if (searchMeta) {
-      if (query) {
-        searchMeta.textContent = totalMatches + ' match' + (totalMatches !== 1 ? 'es' : '') + ' in ' + visibleSections + ' section' + (visibleSections !== 1 ? 's' : '');
+    if (noResults) {
+      if (visibleSections === 0 && hasQuery) {
+        noResults.classList.remove('hidden');
       } else {
-        searchMeta.textContent = '';
+        noResults.classList.add('hidden');
       }
     }
 
-    /* Update sidebar link visibility */
     navLinks.forEach(function (link) {
       var target = document.getElementById(link.dataset.section);
       if (target) {
@@ -142,22 +194,51 @@
       }
     });
 
-    /* Scroll to first match */
-    if (query && visibleSections > 0) {
-      var firstMark = document.querySelector('mark.search-highlight');
-      if (firstMark) {
-        firstMark.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (hasQuery) {
+      collectMarks();
+      if (allMarks.length > 0) {
+        allMarks[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
+      updateMetaText();
+    } else {
+      if (searchMeta) searchMeta.innerHTML = '';
     }
   }
 
-  searchInput.addEventListener('input', debounce(performSearch, 250));
+  if (searchInput) {
+    searchInput.addEventListener('input', debounce(performSearch, 200));
 
-  searchInput.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') {
+    searchInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        searchInput.value = '';
+        performSearch();
+        searchInput.blur();
+        return;
+      }
+      if (e.key === 'Enter' && allMarks.length > 0) {
+        e.preventDefault();
+        if (e.shiftKey) {
+          goToMatch(currentIdx - 1);
+        } else {
+          goToMatch(currentIdx + 1);
+        }
+      }
+    });
+  }
+
+  if (searchClear) {
+    searchClear.addEventListener('click', function () {
       searchInput.value = '';
       performSearch();
-      searchInput.blur();
+      searchInput.focus();
+    });
+  }
+
+  /* Ctrl+K / Cmd+K to focus search */
+  document.addEventListener('keydown', function (e) {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+      e.preventDefault();
+      if (searchInput) searchInput.focus();
     }
   });
 
@@ -170,15 +251,17 @@
     });
   }
 
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        setActiveNav(entry.target.id);
-      }
-    });
-  }, { root: null, rootMargin: '-80px 0px -60% 0px', threshold: 0 });
+  if (sections.length) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          setActiveNav(entry.target.id);
+        }
+      });
+    }, { root: null, rootMargin: '-80px 0px -60% 0px', threshold: 0 });
 
-  sections.forEach(function (sec) { observer.observe(sec); });
+    sections.forEach(function (sec) { observer.observe(sec); });
+  }
 
   navLinks.forEach(function (link) {
     link.addEventListener('click', function (e) {
@@ -192,7 +275,7 @@
   });
 
   /* ========================================
-     3. ROLE TABS
+     3. ROLE TABS (for combined page if used)
      ======================================== */
   document.addEventListener('click', function (e) {
     if (!e.target.classList.contains('role-tab')) return;
@@ -218,16 +301,27 @@
   /* ========================================
      4. BACK-TO-TOP BUTTON
      ======================================== */
-  window.addEventListener('scroll', function () {
-    backToTop.classList.toggle('visible', window.scrollY > 400);
-  }, { passive: true });
+  if (backToTop) {
+    window.addEventListener('scroll', function () {
+      backToTop.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
 
-  backToTop.addEventListener('click', function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+    backToTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
   /* ========================================
-     5. FEEDBACK SYSTEM (localStorage-backed)
+     5. EXPORT TO PDF
+     ======================================== */
+  if (exportBtn) {
+    exportBtn.addEventListener('click', function () {
+      window.print();
+    });
+  }
+
+  /* ========================================
+     6. FEEDBACK SYSTEM (localStorage-backed)
      ======================================== */
   var STORAGE_KEY = 'kubra_sg_feedback';
 
@@ -273,46 +367,38 @@
     var section = widget.getAttribute('data-section');
     var sd = getSectionData(section);
 
-    /* Counts */
     var likeCount = widget.querySelector('[data-count="like"]');
     var dislikeCount = widget.querySelector('[data-count="dislike"]');
     if (likeCount) likeCount.textContent = sd.likes;
     if (dislikeCount) dislikeCount.textContent = sd.dislikes;
 
-    /* Button states */
     var likeBtn = widget.querySelector('.feedback-btn--like');
     var dislikeBtn = widget.querySelector('.feedback-btn--dislike');
     if (likeBtn) likeBtn.classList.toggle('selected', sd.userVote === 'like');
     if (dislikeBtn) dislikeBtn.classList.toggle('selected', sd.userVote === 'dislike');
 
-    /* Comments */
     renderComments(widget, sd);
   }
 
-  /* Use event delegation on each widget — attach once, never lost */
   function setupWidget(widget) {
     var section = widget.getAttribute('data-section');
-
     renderWidget(widget);
 
     widget.addEventListener('click', function (e) {
       var target = e.target.closest('button');
       if (!target) return;
 
-      /* --- Like / Dislike --- */
       if (target.classList.contains('feedback-btn')) {
         var type = target.getAttribute('data-type');
         var sd = getSectionData(section);
         var commentArea = widget.querySelector('.feedback-comment-area');
 
         if (sd.userVote === type) {
-          /* Un-vote */
           if (type === 'like') sd.likes = Math.max(0, sd.likes - 1);
           else sd.dislikes = Math.max(0, sd.dislikes - 1);
           sd.userVote = null;
           if (commentArea) commentArea.classList.add('hidden');
         } else {
-          /* Switch or new vote */
           if (sd.userVote === 'like') sd.likes = Math.max(0, sd.likes - 1);
           if (sd.userVote === 'dislike') sd.dislikes = Math.max(0, sd.dislikes - 1);
           if (type === 'like') sd.likes++;
@@ -326,7 +412,6 @@
         return;
       }
 
-      /* --- Submit comment --- */
       if (target.classList.contains('feedback-submit')) {
         var textarea = widget.querySelector('.feedback-textarea');
         var text = textarea ? textarea.value.trim() : '';
@@ -348,7 +433,6 @@
         return;
       }
 
-      /* --- Cancel comment --- */
       if (target.classList.contains('feedback-cancel')) {
         var textarea = widget.querySelector('.feedback-textarea');
         if (textarea) textarea.value = '';
@@ -359,8 +443,19 @@
     });
   }
 
-  /* Initialize all feedback widgets */
   var widgets = document.querySelectorAll('.feedback-widget');
   widgets.forEach(function (w) { setupWidget(w); });
+
+  /* ========================================
+     7. DEEP LINK on load
+     ======================================== */
+  if (window.location.hash) {
+    var target = document.getElementById(window.location.hash.slice(1));
+    if (target) {
+      setTimeout(function () {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+  }
 
 })();
