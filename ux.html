@@ -3,23 +3,24 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>KUBRA Style Guide &mdash; UX Writers</title>
+    <title>KUBRA Style Guide &mdash; UX Writers | Proper &amp; Common Nouns</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <div class="print-header">
+        <div class="print-header__brand">
+            <img src="images/kubra-logo.png" alt="KUBRA" class="print-header__logo" width="180" height="44" />
+        </div>
         <h1>KUBRA Writing Style Guide</h1>
-        <p>UX Writers</p>
+        <p>UX Writers &mdash; Proper &amp; Common Nouns</p>
     </div>
 
     <header class="top-bar">
         <a href="index.html" class="top-bar__logo">
-            <svg viewBox="0 0 40 36" width="32" height="28" aria-hidden="true">
-                <polygon points="20,0 0,12 0,24 20,12" fill="#82BC00" />
-                <polygon points="20,0 40,12 40,24 20,12" fill="#0093C9" />
-                <polygon points="20,12 0,24 20,36 40,24" fill="#536372" />
-            </svg>
-            <span>KUBRA <em>UX Writers</em></span>
+            <span class="brand-logo-wrap">
+                <img class="brand-logo" src="images/kubra-logo.png" alt="KUBRA" width="140" height="36" />
+            </span>
+            <span class="top-bar__team-label">UX Writers</span>
         </a>
         <div class="top-bar__actions">
             <div class="top-bar__search">
@@ -37,16 +38,19 @@
     <nav class="sidebar" id="sidebar">
         <a href="index.html" class="sidebar-back">&larr; All Guides</a>
         <ul>
-            <li><a href="#introduction" class="nav-link active" data-section="introduction">Introduction</a></li>
+            <li><a href="#introduction" class="nav-link active" data-section="introduction">Overview</a></li>
             <li>
-                <span class="nav-group-label">Writing</span>
+                <span class="nav-group-label">Proper &amp; common nouns</span>
                 <ul>
-                    <li><a href="#writing-principles" class="nav-link" data-section="writing-principles">Goals &amp; Principles</a></li>
-                    <li><a href="#tone-voice" class="nav-link" data-section="tone-voice">Tone &amp; Voice</a></li>
-                    <li><a href="#language" class="nav-link" data-section="language">Language</a></li>
-                    <li><a href="#grammar" class="nav-link" data-section="grammar">Grammar &amp; Mechanics</a></li>
-                    <li><a href="#sentence-structure" class="nav-link" data-section="sentence-structure">Sentence Structure</a></li>
-                    <li><a href="#abbreviations" class="nav-link" data-section="abbreviations">Abbreviations &amp; Acronyms</a></li>
+                    <li><a href="#governing-rule" class="nav-link" data-section="governing-rule">Governing rule</a></li>
+                    <li><a href="#proper-nouns" class="nav-link" data-section="proper-nouns">Proper nouns</a></li>
+                    <li><a href="#descriptor-vs-proper" class="nav-link" data-section="descriptor-vs-proper">Descriptor vs. proper</a></li>
+                    <li><a href="#common-nouns" class="nav-link" data-section="common-nouns">Common nouns</a></li>
+                    <li><a href="#acronyms-capitalization" class="nav-link" data-section="acronyms-capitalization">Acronyms</a></li>
+                    <li><a href="#ui-guidance" class="nav-link" data-section="ui-guidance">UI guidance</a></li>
+                    <li><a href="#approved-terminology" class="nav-link" data-section="approved-terminology">Approved terminology</a></li>
+                    <li><a href="#what-to-avoid" class="nav-link" data-section="what-to-avoid">What to avoid</a></li>
+                    <li><a href="#when-in-doubt" class="nav-link" data-section="when-in-doubt">When in doubt</a></li>
                 </ul>
             </li>
         </ul>
@@ -54,17 +58,14 @@
 
     <main class="content" id="content">
 
-        <!-- ===== INTRODUCTION ===== -->
         <section id="introduction" class="section">
             <div class="team-page-heading">
-                <h1>Introduction</h1>
+                <h1>Proper and Common Nouns</h1>
                 <span class="team-badge team-badge--ux">UX Writers</span>
             </div>
-            <h2>About This Guide</h2>
-            <p>This writing style guide helps everyone at KUBRA communicate with clarity, consistency, and confidence. As a UX Writer, you shape the words users see inside our products &mdash; labels, tooltips, error messages, and every piece of microcopy that guides them forward.</p>
-            <p>Good writing builds trust. When our content is consistent, users can focus on their tasks instead of deciphering our interface.</p>
-            <p>This guide covers goals and principles, tone and voice, language, grammar and mechanics, sentence structure, and abbreviations and acronyms &mdash; all tailored to the UX Writing team.</p>
-            <div class="feedback-widget" data-section="ux-introduction">
+            <p>Consistent capitalization helps users understand what is a named product or feature versus a general concept or action. In payment and technical experiences, incorrect capitalization can create confusion, imply functionality that doesn&rsquo;t exist, or suggest a level of formality that isn&rsquo;t intended.</p>
+            <p>This section defines how to determine whether a term is a proper noun or a common noun, and how to apply that decision consistently across UI, documentation, and supporting content.</p>
+            <div class="feedback-widget" data-section="ux-pnc-intro">
                 <div class="feedback-prompt">Was this section helpful?</div>
                 <div class="feedback-buttons">
                     <button class="feedback-btn feedback-btn--like" data-type="like" title="Helpful"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z" /><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" /></svg><span class="feedback-count" data-count="like">0</span></button>
@@ -78,37 +79,22 @@
             </div>
         </section>
 
-        <!-- ===== WRITING GOALS & PRINCIPLES ===== -->
-        <section id="writing-principles" class="section">
-            <h1>Writing Goals &amp; Principles</h1>
-            <h2>Core Principles</h2>
-            <div class="card-row card-row--quad">
-                <div class="card card--accent-green"><h3>Empower</h3><p>Give readers the confidence and tools to act. Make the next step clear and achievable.</p></div>
-                <div class="card card--accent-blue"><h3>Respect</h3><p>Use people-first language. Value the reader&rsquo;s time and avoid unnecessary complexity.</p></div>
-                <div class="card card--accent-green"><h3>Educate</h3><p>Focus on what users need to know to move forward. Prioritize usefulness over completeness.</p></div>
-                <div class="card card--accent-blue"><h3>Guide</h3><p>Be friendly, helpful, and solution-oriented. Reduce uncertainty and friction wherever possible.</p></div>
+        <section id="governing-rule" class="section">
+            <h1>Governing Rule</h1>
+            <p>Capitalize a term only when it refers to an official, named product, feature, service, or program.</p>
+            <p>If a term describes:</p>
+            <ul class="styled-list">
+                <li>A behavior</li>
+                <li>A configuration</li>
+                <li>A concept</li>
+                <li>An outcome</li>
+                <li>A general capability</li>
+            </ul>
+            <p>&hellip;it should be treated as a <strong>common noun</strong> and follow standard sentence casing.</p>
+            <div class="sg-quote">
+                <p><strong>When in doubt,</strong> default to common noun and escalate for confirmation.</p>
             </div>
-
-            <h2>For UX Writers</h2>
-            <div class="role-guidance role-guidance--ux">
-                <div class="role-guidance__label">Your Focus</div>
-                <ul class="styled-list">
-                    <li><strong>Microcopy focus</strong> &mdash; Every label, tooltip, and message should help users understand what to do next.</li>
-                    <li><strong>Context awareness</strong> &mdash; Reflect the current UI state and user progress in system messages.</li>
-                    <li><strong>Brevity</strong> &mdash; Keep copy short and focused, especially in constrained spaces.</li>
-                    <li><strong>Predictive assistance</strong> &mdash; Anticipate common questions and address them before they interrupt the flow.</li>
-                </ul>
-            </div>
-
-            <h2>Examples</h2>
-            <h3>Empower the Audience</h3>
-            <div class="example-block"><div class="example example--dont"><span class="badge badge--dont">&times; Before</span><p>&ldquo;This tool supports various functions.&rdquo;</p></div><div class="example example--do"><span class="badge badge--do">&check; After</span><p>&ldquo;You can use this tool to create reports, automate workflows, and manage customer data.&rdquo;</p></div></div>
-            <h3>Respect the Reader</h3>
-            <div class="example-block"><div class="example example--dont"><span class="badge badge--dont">&times; Before</span><p>&ldquo;Obviously, you need to configure your settings first.&rdquo;</p></div><div class="example example--do"><span class="badge badge--do">&check; After</span><p>&ldquo;Before you begin, configure your notification settings.&rdquo;</p></div></div>
-            <h3>Encourage Engagement</h3>
-            <div class="example-block"><div class="example example--dont"><span class="badge badge--dont">&times; Weak CTA</span><p>&ldquo;Learn more.&rdquo;</p></div><div class="example example--do"><span class="badge badge--do">&check; Strong CTA</span><p>&ldquo;Discover how this feature can improve your workflow.&rdquo;</p></div></div>
-
-            <div class="feedback-widget" data-section="ux-writing-principles">
+            <div class="feedback-widget" data-section="ux-pnc-governing">
                 <div class="feedback-prompt">Was this section helpful?</div>
                 <div class="feedback-buttons">
                     <button class="feedback-btn feedback-btn--like" data-type="like" title="Helpful"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z" /><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" /></svg><span class="feedback-count" data-count="like">0</span></button>
@@ -122,58 +108,28 @@
             </div>
         </section>
 
-        <!-- ===== TONE & VOICE ===== -->
-        <section id="tone-voice" class="section">
-            <h1>Tone &amp; Voice</h1>
-
-            <h2>Voice</h2>
-            <p>Voice defines KUBRA&rsquo;s personality. It remains consistent across channels while allowing flexibility based on audience and context.</p>
-            <h3>Core Attributes</h3>
-            <div class="card-row card-row--triple">
-                <div class="card"><h4>Confident but Humble</h4><p>We know our space and can help, without sounding arrogant.</p></div>
-                <div class="card"><h4>Informal but Precise</h4><p>We sound human and approachable, but never sloppy or unclear.</p></div>
-                <div class="card"><h4>Helpful, Never Overbearing</h4><p>We guide readers toward outcomes without pushing or overwhelming them.</p></div>
-            </div>
-
-            <h2>Your Voice</h2>
-            <div class="role-guidance role-guidance--ux">
-                <div class="role-guidance__label">UX Writer Voice</div>
-                <p>Act as a <strong>friendly companion</strong> in the interface. Writing should feel conversational, supportive, and focused on helping users move forward.</p>
-            </div>
-
-            <h3>Voice Examples</h3>
-            <div class="example-block"><div class="example example--dont"><span class="badge badge--dont">&times; UX &mdash; Wordy</span><p>&ldquo;You might want to press here to proceed.&rdquo;</p></div><div class="example example--do"><span class="badge badge--do">&check; UX &mdash; Concise</span><p>&ldquo;Press to continue.&rdquo;</p></div></div>
-
-            <h2>Tone</h2>
-            <p>Tone is how voice adapts to the situation. While KUBRA&rsquo;s voice stays consistent, tone should shift based on context, audience, and emotional stakes.</p>
-            <h3>Core Stance</h3>
+        <section id="proper-nouns" class="section">
+            <h1>Proper Nouns (Capitalize)</h1>
+            <p>A proper noun refers to a specific, officially named entity that users can identify, select, enable, or manage.</p>
+            <h2>Proper nouns include</h2>
             <ul class="styled-list">
-                <li>Tone is generally <strong>informal, but always clear</strong>. Clarity takes priority over entertainment.</li>
-                <li>Tone should <strong>adapt to user context</strong> &mdash; troubleshooting, exploration, or decision-making.</li>
+                <li>Product names</li>
+                <li>Platform tools and services</li>
+                <li>Official program names</li>
+                <li>Branded features</li>
+                <li>Acronyms or abbreviations that represent named systems</li>
             </ul>
-
-            <h3>Your Tone</h3>
-            <div class="role-guidance role-guidance--ux">
-                <div class="role-guidance__label">UX Writer Tone</div>
-                <p>Use a <strong>conversational</strong> tone in normal flows, a <strong>calm and reassuring</strong> tone in error states, and a <strong>brief, positive</strong> tone in success messages.</p>
-            </div>
-
-            <h3>Tone Examples</h3>
-            <div class="example-block"><div class="example example--dont"><span class="badge badge--dont">&times; Error Message &mdash; Blunt</span><p>&ldquo;Connection failed.&rdquo;</p></div><div class="example example--do"><span class="badge badge--do">&check; Error Message &mdash; Empathetic</span><p>&ldquo;Your connection was lost. Please check your network and try again.&rdquo;</p></div></div>
-            <div class="example-block"><div class="example example--dont"><span class="badge badge--dont">&times; Success &mdash; Flat</span><p>&ldquo;Done.&rdquo;</p></div><div class="example example--do"><span class="badge badge--do">&check; Success &mdash; Positive</span><p>&ldquo;All set! Your changes have been saved.&rdquo;</p></div></div>
-
-            <h2>Inclusive Language</h2>
+            <h2>Proper nouns should</h2>
             <ul class="styled-list">
-                <li>Avoid words or phrases that might alienate diverse groups.</li>
-                <li>Use &ldquo;allowlist&rdquo; instead of &ldquo;whitelist.&rdquo;</li>
-                <li>Use &ldquo;they&rdquo; for gender neutrality.</li>
-                <li>Avoid age markers (e.g., &ldquo;elderly&rdquo;).</li>
+                <li>Always use the approved spelling and capitalization.</li>
+                <li>Never be altered for sentence flow.</li>
+                <li>Be consistent across UI, documentation, and support content.</li>
             </ul>
-            <h3>Inclusive Language Examples</h3>
-            <div class="example-block"><div class="example example--dont"><span class="badge badge--dont">&times; Don&rsquo;t</span><p>&ldquo;Hey guys, check out the new feature!&rdquo;</p></div><div class="example example--do"><span class="badge badge--do">&check; Do</span><p>&ldquo;Hello everyone &mdash; check out the new feature!&rdquo;</p></div></div>
-            <div class="example-block"><div class="example example--dont"><span class="badge badge--dont">&times; Don&rsquo;t</span><p>&ldquo;This feature is so easy, even your grandma could use it.&rdquo;</p></div><div class="example example--do"><span class="badge badge--do">&check; Do</span><p>&ldquo;This feature is designed to be intuitive for users of all experience levels.&rdquo;</p></div></div>
-
-            <div class="feedback-widget" data-section="ux-tone-voice">
+            <div class="sg-quote">
+                <p>For a comprehensive and authoritative list, refer to <em>KUBRA Product Name Usage and Trademark Guidelines</em>.</p>
+            </div>
+            <hr class="sg-hr" />
+            <div class="feedback-widget" data-section="ux-pnc-proper">
                 <div class="feedback-prompt">Was this section helpful?</div>
                 <div class="feedback-buttons">
                     <button class="feedback-btn feedback-btn--like" data-type="like" title="Helpful"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z" /><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" /></svg><span class="feedback-count" data-count="like">0</span></button>
@@ -187,35 +143,21 @@
             </div>
         </section>
 
-        <!-- ===== LANGUAGE ===== -->
-        <section id="language" class="section">
-            <h1>Language</h1>
-            <p>Language choices determine how easy content is to understand, scan, and trust.</p>
-
-            <h2>Core Language Approach</h2>
-            <ul class="styled-list">
-                <li><strong>Use plain language</strong> whenever possible.</li>
-                <li><strong>Be consistent.</strong> Use one term per concept and apply it everywhere.</li>
-                <li><strong>Write inclusively.</strong> Avoid language that assumes identity, role, ability, or experience.</li>
-                <li><strong>Write for a global audience.</strong> Avoid slang and metaphors.</li>
-                <li><strong>Use American English</strong> by default.</li>
-            </ul>
-
-            <h2>For UX Writers</h2>
-            <div class="role-guidance role-guidance--ux">
-                <div class="role-guidance__label">Your Language Approach</div>
-                <p>Mirror how users <strong>think and speak</strong>. Use familiar language, clear action verbs, and concise phrasing that supports quick decision-making in the interface.</p>
+        <section id="descriptor-vs-proper" class="section">
+            <h1>Descriptor vs. Proper Noun Usage</h1>
+            <p>Some terms may appear capitalized in one context and lowercase in another. This distinction depends on <strong>how the term is being used</strong>, not the words themselves.</p>
+            <h2>Use sentence case when the term acts as a descriptor</h2>
+            <p>If the term describes a general action, capability, or outcome, treat it as a common noun.</p>
+            <div class="sg-quote sg-quote--ok">
+                <p>&check; &ldquo;Enable this setting to receive payment reminders for your contacts.&rdquo;</p>
+                <p>Here, &ldquo;payment reminders&rdquo; describes a behavior, not the named SMS program.</p>
             </div>
-
-            <h2>Language Examples</h2>
-            <h3>Plain Language</h3>
-            <div class="example-block"><div class="example example--dont"><span class="badge badge--dont">&times; Before</span><p>&ldquo;Utilize the aforementioned functionality to facilitate the process.&rdquo;</p></div><div class="example example--do"><span class="badge badge--do">&check; After</span><p>&ldquo;Use this feature to complete the process.&rdquo;</p></div></div>
-            <h3>Consistency</h3>
-            <div class="example-block"><div class="example example--dont"><span class="badge badge--dont">&times; Inconsistent</span><p>Using &ldquo;dashboard,&rdquo; &ldquo;home screen,&rdquo; and &ldquo;main page&rdquo; interchangeably.</p></div><div class="example example--do"><span class="badge badge--do">&check; Consistent</span><p>Always refer to it as the &ldquo;dashboard&rdquo; &mdash; one term, used everywhere.</p></div></div>
-            <h3>Inclusive Language</h3>
-            <div class="example-block"><div class="example example--dont"><span class="badge badge--dont">&times; Before</span><p>&ldquo;Even a beginner can figure this out.&rdquo;</p></div><div class="example example--do"><span class="badge badge--do">&check; After</span><p>&ldquo;This feature is designed to be straightforward for all experience levels.&rdquo;</p></div></div>
-
-            <div class="feedback-widget" data-section="ux-language">
+            <h2>Use title case when referring to the named feature or program</h2>
+            <div class="sg-quote sg-quote--ok">
+                <p>&check; &ldquo;Manage Payment Reminders in your notification settings.&rdquo;</p>
+            </div>
+            <hr class="sg-hr" />
+            <div class="feedback-widget" data-section="ux-pnc-descriptor">
                 <div class="feedback-prompt">Was this section helpful?</div>
                 <div class="feedback-buttons">
                     <button class="feedback-btn feedback-btn--like" data-type="like" title="Helpful"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z" /><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" /></svg><span class="feedback-count" data-count="like">0</span></button>
@@ -229,35 +171,18 @@
             </div>
         </section>
 
-        <!-- ===== GRAMMAR & MECHANICS ===== -->
-        <section id="grammar" class="section">
-            <h1>Grammar &amp; Mechanics</h1>
-            <p>Grammar and mechanics create consistency across KUBRA content and reduce reader effort.</p>
-
-            <h2>Core Conventions</h2>
+        <section id="common-nouns" class="section">
+            <h1>Common Nouns (Do Not Capitalize)</h1>
+            <p>The following terms are not proper nouns and should follow standard sentence casing, even if they are domain-specific or appear technical.</p>
+            <h2>Common nouns include</h2>
             <ul class="styled-list">
-                <li><strong>Use the Oxford comma.</strong></li>
-                <li>Use parentheses for asides.</li>
-                <li>Follow consistent rules for numbers, dates, and times.</li>
-                <li>Avoid decorative punctuation.</li>
-                <li>Format UI elements consistently.</li>
+                <li>General financial concepts</li>
+                <li>System behaviors or processes</li>
+                <li>Internal classifications or abstractions</li>
+                <li>Features when referenced generically</li>
             </ul>
-
-            <h2>For UX Writers</h2>
-            <div class="role-guidance role-guidance--ux">
-                <div class="role-guidance__label">Your Mechanics Focus</div>
-                <p>Use sentence case for UI text, keep punctuation minimal, and maintain consistent message patterns across similar interactions.</p>
-            </div>
-
-            <h2>Grammar &amp; Mechanics Examples</h2>
-            <h3>Sentence Case for UI</h3>
-            <div class="example-block"><div class="example example--dont"><span class="badge badge--dont">&times; Title Case</span><p>&ldquo;View Your Account Settings&rdquo;</p></div><div class="example example--do"><span class="badge badge--do">&check; Sentence Case</span><p>&ldquo;View your account settings&rdquo;</p></div></div>
-            <h3>Decorative Punctuation</h3>
-            <div class="example-block"><div class="example example--dont"><span class="badge badge--dont">&times; Decorative</span><p>&ldquo;Welcome to KUBRA!!!&rdquo;</p></div><div class="example example--do"><span class="badge badge--do">&check; Clean</span><p>&ldquo;Welcome to KUBRA.&rdquo;</p></div></div>
-            <h3>Oxford Comma</h3>
-            <div class="example-block"><div class="example example--dont"><span class="badge badge--dont">&times; Without</span><p>&ldquo;KUBRA offers billing, payments and notifications.&rdquo;</p></div><div class="example example--do"><span class="badge badge--do">&check; With Oxford Comma</span><p>&ldquo;KUBRA offers billing, payments, and notifications.&rdquo;</p></div></div>
-
-            <div class="feedback-widget" data-section="ux-grammar">
+            <hr class="sg-hr" />
+            <div class="feedback-widget" data-section="ux-pnc-common">
                 <div class="feedback-prompt">Was this section helpful?</div>
                 <div class="feedback-buttons">
                     <button class="feedback-btn feedback-btn--like" data-type="like" title="Helpful"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z" /><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" /></svg><span class="feedback-count" data-count="like">0</span></button>
@@ -271,32 +196,23 @@
             </div>
         </section>
 
-        <!-- ===== SENTENCE STRUCTURE ===== -->
-        <section id="sentence-structure" class="section">
-            <h1>Sentence Structure</h1>
-            <p>Sentence structure affects how quickly content can be read and understood.</p>
-
-            <h2>Core Approach</h2>
+        <section id="acronyms-capitalization" class="section">
+            <h1>Acronyms and Capitalization</h1>
             <ul class="styled-list">
-                <li>Prefer <strong>short, direct sentences</strong>.</li>
-                <li>Express <strong>one idea per sentence</strong> and one topic per paragraph.</li>
-                <li>Place the <strong>most important information first</strong>.</li>
-                <li>Use <strong>lists</strong> to reduce complexity and make content easier to scan.</li>
+                <li>Acronyms representing named systems or programs are treated as proper nouns and remain fully capitalized.</li>
+                <li>Acronyms that describe general processes or technical concepts follow standard sentence casing rules when spelled out.</li>
             </ul>
-
-            <h2>For UX Writers</h2>
-            <div class="role-guidance role-guidance--ux">
-                <div class="role-guidance__label">Your Structure Approach</div>
-                <p>Keep labels and messages short. <strong>Sentence fragments are acceptable</strong> when context makes meaning clear.</p>
+            <h2>Documentation rule</h2>
+            <ol class="styled-list">
+                <li>Spell out the full term on first mention.</li>
+                <li>Include the acronym in parentheses.</li>
+                <li>Use the acronym consistently thereafter.</li>
+            </ol>
+            <div class="sg-quote sg-quote--ok">
+                <p>&check; &ldquo;The System Usability Scale (SUS) is used to evaluate usability. SUS results are reviewed quarterly.&rdquo;</p>
             </div>
-
-            <h2>Sentence Structure Examples</h2>
-            <h3>Short &amp; Direct</h3>
-            <div class="example-block"><div class="example example--dont"><span class="badge badge--dont">&times; Before</span><p>&ldquo;In order to be able to access the reporting dashboard, users will first need to make sure that they have completed the setup process.&rdquo;</p></div><div class="example example--do"><span class="badge badge--do">&check; After</span><p>&ldquo;Complete setup to access the reporting dashboard.&rdquo;</p></div></div>
-            <h3>Important Information First</h3>
-            <div class="example-block"><div class="example example--dont"><span class="badge badge--dont">&times; Before</span><p>&ldquo;After reviewing the documentation and consulting with your team lead, submit the request form.&rdquo;</p></div><div class="example example--do"><span class="badge badge--do">&check; After</span><p>&ldquo;Submit the request form after reviewing the documentation.&rdquo;</p></div></div>
-
-            <div class="feedback-widget" data-section="ux-sentence-structure">
+            <hr class="sg-hr" />
+            <div class="feedback-widget" data-section="ux-pnc-acronyms">
                 <div class="feedback-prompt">Was this section helpful?</div>
                 <div class="feedback-buttons">
                     <button class="feedback-btn feedback-btn--like" data-type="like" title="Helpful"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z" /><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" /></svg><span class="feedback-count" data-count="like">0</span></button>
@@ -310,32 +226,127 @@
             </div>
         </section>
 
-        <!-- ===== ABBREVIATIONS & ACRONYMS ===== -->
-        <section id="abbreviations" class="section">
-            <h1>Abbreviations &amp; Acronyms</h1>
-            <p>Abbreviations and acronyms can improve efficiency when used carefully, but they can also create confusion when overused.</p>
-
-            <h2>General Guidance</h2>
+        <section id="ui-guidance" class="section">
+            <h1>UI-Specific Guidance</h1>
+            <h2>In UI copy</h2>
             <ul class="styled-list">
-                <li><strong>Spell out on first use</strong>, followed by the shortened form in parentheses.</li>
-                <li><strong>Do not introduce acronyms that appear only once or twice</strong> on a page.</li>
-                <li><strong>Avoid internal or team-specific shorthand</strong> in customer-facing content.</li>
-                <li>When <strong>multiple acronyms appear in the same section</strong>, take extra care to avoid cognitive overload.</li>
+                <li>Use capitalization to signal selectable or configurable entities.</li>
+                <li>Avoid capitalizing concepts that users cannot directly act on.</li>
+                <li>Do not introduce new capitalization for emphasis.</li>
             </ul>
-
-            <h2>For UX Writers</h2>
-            <div class="role-guidance role-guidance--ux">
-                <div class="role-guidance__label">Your Abbreviation Approach</div>
-                <p>Avoid acronyms in UI text whenever possible. Short interface copy should prioritize immediate understanding. Acronyms may be appropriate in tables, advanced settings, or constrained spaces only when the audience is familiar with them.</p>
+            <h2>In tables, labels, and menus</h2>
+            <ul class="styled-list">
+                <li>Preserve official capitalization for proper nouns.</li>
+                <li>Do not &ldquo;normalize&rdquo; product names to match sentence case.</li>
+                <li>Avoid mixing proper and common noun usage in the same UI surface.</li>
+            </ul>
+            <hr class="sg-hr" />
+            <div class="feedback-widget" data-section="ux-pnc-ui">
+                <div class="feedback-prompt">Was this section helpful?</div>
+                <div class="feedback-buttons">
+                    <button class="feedback-btn feedback-btn--like" data-type="like" title="Helpful"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z" /><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" /></svg><span class="feedback-count" data-count="like">0</span></button>
+                    <button class="feedback-btn feedback-btn--dislike" data-type="dislike" title="Not helpful"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3H10z" /><path d="M17 2h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17" /></svg><span class="feedback-count" data-count="dislike">0</span></button>
+                </div>
+                <div class="feedback-comment-area hidden">
+                    <textarea class="feedback-textarea" placeholder="Share your feedback on this section..." rows="3"></textarea>
+                    <div class="feedback-comment-actions"><button class="feedback-submit">Submit</button><button class="feedback-cancel">Cancel</button></div>
+                </div>
+                <div class="feedback-comments-list"></div>
             </div>
+        </section>
 
-            <h2>Abbreviation &amp; Acronym Examples</h2>
-            <h3>UI Text &mdash; Avoid Acronyms</h3>
-            <div class="example-block"><div class="example example--dont"><span class="badge badge--dont">&times; In UI</span><p>Button label: &ldquo;Generate SOW&rdquo;</p></div><div class="example example--do"><span class="badge badge--do">&check; In UI</span><p>Button label: &ldquo;Generate statement of work&rdquo;</p></div></div>
-            <h3>Acronym Overload</h3>
-            <div class="example-block"><div class="example example--dont"><span class="badge badge--dont">&times; Overloaded</span><p>&ldquo;The CSR used the CRM to update the SLA per the SOW before notifying the PM via the IVR.&rdquo;</p></div><div class="example example--do"><span class="badge badge--do">&check; Readable</span><p>&ldquo;The customer service representative updated the service-level agreement in the CRM, following the terms in the statement of work.&rdquo;</p></div></div>
+        <section id="approved-terminology" class="section">
+            <h1>Approved Terminology</h1>
+            <h2>Proper nouns</h2>
+            <div class="sg-table-wrap">
+                <table class="sg-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Term</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Pay-by-Text</td><td>SMS program name</td><td>Not &ldquo;Pay by Text&rdquo;</td></tr>
+                        <tr><td>EZ-PAY</td><td>Product name</td><td>Not &ldquo;EZ-Pay,&rdquo; &ldquo;EZ PAY,&rdquo; or &ldquo;Ez Pay&rdquo;</td></tr>
+                        <tr><td>CNAME</td><td>Abbreviation/acronym</td><td>Not &ldquo;Cname&rdquo; or &ldquo;cname&rdquo;</td></tr>
+                        <tr><td>Storm Center</td><td>Product name</td><td>Not &ldquo;StormCenter&rdquo;</td></tr>
+                        <tr><td>IncidentWatch</td><td>Product name</td><td>Not &ldquo;Incident Watch&rdquo;</td></tr>
+                        <tr><td>Image Library</td><td>Platform tool/service name</td><td>&mdash;</td></tr>
+                        <tr><td>Payable Types</td><td>Platform tool/service name</td><td>&mdash;</td></tr>
+                        <tr><td>Retail Cash Payments (RCP)</td><td>Platform tool/service name</td><td>&mdash;</td></tr>
+                        <tr><td>Text Activity Alerts</td><td>SMS program name</td><td>&mdash;</td></tr>
+                        <tr><td>Payment Reminders</td><td>SMS program name</td><td>&mdash;</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <h2>Common nouns</h2>
+            <div class="sg-table-wrap">
+                <table class="sg-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Term / phrase</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>PAN validation</td><td>Technical process</td><td>&mdash;</td></tr>
+                        <tr><td>service fee</td><td>Financial concept</td><td>&mdash;</td></tr>
+                        <tr><td>transaction division (TD)</td><td>Descriptor</td><td>Capitalize only when starting a sentence</td></tr>
+                        <tr><td>workspace</td><td>Generic UI concept</td><td>&mdash;</td></tr>
+                        <tr><td>snapshot</td><td>General system artifact</td><td>&mdash;</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <hr class="sg-hr" />
+            <div class="feedback-widget" data-section="ux-pnc-approved">
+                <div class="feedback-prompt">Was this section helpful?</div>
+                <div class="feedback-buttons">
+                    <button class="feedback-btn feedback-btn--like" data-type="like" title="Helpful"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z" /><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" /></svg><span class="feedback-count" data-count="like">0</span></button>
+                    <button class="feedback-btn feedback-btn--dislike" data-type="dislike" title="Not helpful"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3H10z" /><path d="M17 2h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17" /></svg><span class="feedback-count" data-count="dislike">0</span></button>
+                </div>
+                <div class="feedback-comment-area hidden">
+                    <textarea class="feedback-textarea" placeholder="Share your feedback on this section..." rows="3"></textarea>
+                    <div class="feedback-comment-actions"><button class="feedback-submit">Submit</button><button class="feedback-cancel">Cancel</button></div>
+                </div>
+                <div class="feedback-comments-list"></div>
+            </div>
+        </section>
 
-            <div class="feedback-widget" data-section="ux-abbreviations">
+        <section id="what-to-avoid" class="section">
+            <h1>What to Avoid</h1>
+            <ul class="styled-list">
+                <li>Capitalizing for emphasis.</li>
+                <li>Creating new &ldquo;informal&rdquo; variants of product names.</li>
+                <li>Inconsistent casing across similar UI surfaces.</li>
+                <li>Treating internal terminology as proper nouns without approval.</li>
+            </ul>
+            <hr class="sg-hr" />
+            <div class="feedback-widget" data-section="ux-pnc-avoid">
+                <div class="feedback-prompt">Was this section helpful?</div>
+                <div class="feedback-buttons">
+                    <button class="feedback-btn feedback-btn--like" data-type="like" title="Helpful"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z" /><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" /></svg><span class="feedback-count" data-count="like">0</span></button>
+                    <button class="feedback-btn feedback-btn--dislike" data-type="dislike" title="Not helpful"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3H10z" /><path d="M17 2h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17" /></svg><span class="feedback-count" data-count="dislike">0</span></button>
+                </div>
+                <div class="feedback-comment-area hidden">
+                    <textarea class="feedback-textarea" placeholder="Share your feedback on this section..." rows="3"></textarea>
+                    <div class="feedback-comment-actions"><button class="feedback-submit">Submit</button><button class="feedback-cancel">Cancel</button></div>
+                </div>
+                <div class="feedback-comments-list"></div>
+            </div>
+        </section>
+
+        <section id="when-in-doubt" class="section">
+            <h1>When in Doubt</h1>
+            <ol class="styled-list">
+                <li><strong>Ask:</strong> Is this an official, named product, feature, or program?</li>
+                <li><strong>Ask:</strong> Can the user directly select, manage, or configure it?</li>
+                <li><strong>Check</strong> the <em>Product Name Usage and Trademark Guidelines</em>.</li>
+                <li><strong>Default</strong> to sentence case and escalate for confirmation.</li>
+            </ol>
+            <div class="feedback-widget" data-section="ux-pnc-doubt">
                 <div class="feedback-prompt">Was this section helpful?</div>
                 <div class="feedback-buttons">
                     <button class="feedback-btn feedback-btn--like" data-type="like" title="Helpful"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z" /><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" /></svg><span class="feedback-count" data-count="like">0</span></button>

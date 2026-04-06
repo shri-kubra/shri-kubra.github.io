@@ -71,13 +71,38 @@ a:hover {
 .hub-header__logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 14px;
     font-size: 1.15rem;
     font-weight: 600;
     color: var(--gray);
 }
 
-.hub-header__logo em {
+/* Official KUBRA wordmark (PNG) — black background in asset */
+.brand-logo-wrap {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    background: #000;
+    border-radius: 8px;
+    padding: 6px 14px;
+    line-height: 0;
+}
+
+.brand-logo {
+    display: block;
+    height: 28px;
+    width: auto;
+    max-width: 200px;
+    object-fit: contain;
+}
+
+.hub-header .brand-logo {
+    height: 30px;
+    max-width: 220px;
+}
+
+.hub-header__logo em,
+.hub-header__title em {
     font-style: normal;
     font-weight: 400;
     color: var(--text-light);
@@ -221,13 +246,14 @@ a:hover {
     opacity: .85;
 }
 
-.top-bar__logo em {
+.top-bar__team-label {
     font-style: normal;
     font-weight: 400;
+    font-size: 1.05rem;
     color: var(--text-light);
 }
 
-.top-bar__logo svg {
+.top-bar__logo .brand-logo-wrap {
     flex-shrink: 0;
 }
 
@@ -702,9 +728,72 @@ p {
     margin: 8px 0 16px;
 }
 
-.styled-list li {
-    margin-bottom: 8px;
+    .styled-list li {
+        margin-bottom: 8px;
+        font-size: .93rem;
+    }
+
+ol.styled-list {
+    list-style: decimal;
+}
+
+/* ---------- Style guide tables (UX terminology) ---------- */
+.sg-table-wrap {
+    overflow-x: auto;
+    margin: 16px 0 24px;
+    border-radius: var(--radius);
+    border: 1px solid #e0e4e8;
+}
+
+.sg-table {
+    width: 100%;
+    min-width: 520px;
+    border-collapse: collapse;
+    font-size: .88rem;
+    line-height: 1.5;
+}
+
+.sg-table th,
+.sg-table td {
+    border-bottom: 1px solid #e0e4e8;
+    padding: 10px 14px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.sg-table th {
+    background: #f0f2f5;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.sg-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.sg-table tbody tr:nth-child(even) {
+    background: #fafbfc;
+}
+
+/* ---------- Blockquote / tip callouts ---------- */
+.sg-quote {
+    margin: 16px 0;
+    padding: 14px 18px;
+    border-left: 4px solid var(--blue);
+    background: #f0f7ff;
+    border-radius: 0 var(--radius) var(--radius) 0;
     font-size: .93rem;
+}
+
+.sg-quote--ok {
+    border-left-color: var(--green);
+    background: #f4fae6;
+}
+
+.sg-hr {
+    border: none;
+    border-top: 1px solid #e0e4e8;
+    margin: 36px 0;
 }
 
 /* ---------- Callouts ---------- */
@@ -989,8 +1078,11 @@ p {
         padding: 0 10px;
     }
 
-    .top-bar__logo span {
-        font-size: .95rem;
+    .top-bar__team-label {
+        font-size: .9rem;
+        max-width: 140px;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .hub-hero {
@@ -1093,6 +1185,22 @@ p {
     .print-header p {
         font-size: 10pt;
         color: var(--text-light);
+    }
+
+    .print-header__brand {
+        display: inline-block;
+        background: #000;
+        border-radius: 8px;
+        padding: 8px 18px;
+        margin-bottom: 14px;
+    }
+
+    .print-header__logo {
+        display: block;
+        height: 38px;
+        width: auto;
+        max-width: 220px;
+        object-fit: contain;
     }
 }
 
